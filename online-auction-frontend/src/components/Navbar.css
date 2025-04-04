@@ -1,0 +1,47 @@
+.navbar {
+  min-height: 64px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 0 20px;
+  .pages-section {
+    display: flex;
+  }
+}
+.nav-logo {
+  height: 70px;
+  width: auto;
+}
+.nav-link {
+  /* color: #66686c; */
+  color: #333;
+  text-decoration: none;
+  margin-right: 32px;
+  padding: 20px 0;
+  font-size: 20px;
+}
+.nav-link-profile {
+  color: #333;
+  text-decoration: none;
+  margin-right: 32px;
+  /* padding: 20px 0; */
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+  border: 2px solid black;
+  display: inline-block;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+.login-notification-section {
+  display: flex;
+  .nav-bell {
+    padding: 20px 0;
+    margin-right: 16px;
+  }
+}
