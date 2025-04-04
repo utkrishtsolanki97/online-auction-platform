@@ -9,6 +9,8 @@ const Navbar = () => {
   const { user, status } = useSelector((state) => state.auth);
   const [userName, setUserName] = useState("");
   useEffect(() => {
+    console.log(user,status, window.location.pathname);
+    
     if (status === "succeeded") {
       let name = "";
       user.user.name.split(" ").map((n) => {
@@ -28,7 +30,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="login-notification-section">
-          <Link to="/notifications" className="nav-bell">
+          <Link to="/" className="nav-bell">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"

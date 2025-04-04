@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Alert from "../components/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  closeAuthPage,
   initiatePasswordReset,
   otpVerifyPasswordReset,
   passwordReset,
@@ -35,12 +34,7 @@ const ForgotPassword = () => {
     }
   }, [status]);
 
-  useEffect(() => {
-  
-    return () => {
-      dispatch(closeAuthPage())
-    }
-  }, [])
+
   
 
   const handleSubmitOTP = () => {

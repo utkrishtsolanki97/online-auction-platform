@@ -1,16 +1,41 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const userFromLocalStorage = localStorage.getItem("user");
+console.log(userFromLocalStorage);
+
+const initialState = userFromLocalStorage
+  ? JSON.parse(userFromLocalStorage)
+  : {
+      token: null,
+      user: {
+        email: "",
+        id: "",
+        name: "",
+      },
+    };
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (credentials) => {
-    const response = await axios.post(
-      `${import.meta.env.VITE_SERVER_URL}${
-        import.meta.env.VITE_API_LOGIN_USER
-      }`,
-      credentials
-    );
-    return response.data;
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_URL}${
+          import.meta.env.VITE_API_LOGIN_USER
+        }`,
+        credentials
+      );
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+
+      if (error.response && error.response.data) {
+        // Return the error message from the server
+        return rejectWithValue(error.response.data);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
   }
 );
 
@@ -148,7 +173,7 @@ export const userProfile = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: null,
+    user: userFromLocalStorage ? initialState : null,
     profileDetails: {
       name: "",
       email: "",
@@ -156,7 +181,7 @@ const authSlice = createSlice({
       address: "",
       country_code: "",
     },
-    status: "idle",
+    status: userFromLocalStorage ? "succeeded" : "idle",
     error: null,
     registerdStep1: null,
     errCode: null,
@@ -169,6 +194,7 @@ const authSlice = createSlice({
       state.error = null;
       state.registerdStep1 = null;
       state.errCode = null;
+      localStorage.removeItem("user");
     },
     closeAuthPage: (state) => {
       state.status = "idle";
@@ -190,6 +216,7 @@ const authSlice = createSlice({
         state.status = "loading";
       })
       .addCase(loginUser.fulfilled, (state, action) => {
+        localStorage.setItem("user", JSON.stringify(action.payload));
         state.status = "succeeded";
         state.user = action.payload;
       })

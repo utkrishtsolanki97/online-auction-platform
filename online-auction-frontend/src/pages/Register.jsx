@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Register.css";
 import countryMobileCodes from "../components/countryCodes";
 import { useDispatch, useSelector } from "react-redux";
-import { closeAuthPage, registerCompleteUser, registerUser } from "../slices/authSlice";
+import { registerCompleteUser, registerUser } from "../slices/authSlice";
 import Alert from "../components/Alert";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -46,12 +46,7 @@ const Register = () => {
     }
   }, [status])
 
-  useEffect(() => {
-    
-      return () => {
-        dispatch(closeAuthPage())
-      }
-    }, [])
+
   
 
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { closeAuthPage, loginUser } from "../slices/authSlice";
+import { loginUser } from "../slices/authSlice";
 import Alert from "../components/Alert";
 
 const Login = () => {
@@ -13,12 +13,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const { user, status, error } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    
-      return () => {
-        dispatch(closeAuthPage())
-      }
-    }, [])
 
   const handleSubmit = () => {
     dispatch(loginUser({ email, password }));
