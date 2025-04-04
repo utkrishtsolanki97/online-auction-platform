@@ -1,0 +1,83 @@
+.register-screen {
+  background-color: var(--color-background);
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  .register-form {
+    padding: 32px;
+    max-width: 46rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    margin: auto;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .input-text {
+      display: flex;
+      /* flex-direction: column; */
+      width: 100%;
+      margin-bottom: 8px;
+      label {
+        color: var(--color-gray-700);
+        font-size: 16px;
+        width: 20%;
+        text-align: right;
+        margin: auto;
+        margin-right: 20px;
+      }
+      input {
+        padding: 10px;
+        border: 1px solid var(--color-gray-500);
+        border-radius: 5px;
+        width: 80%;
+      }
+    }
+    .input-text-mobile {
+        display: flex;
+        /* flex-direction: column; */
+        width: 100%;
+        margin-bottom: 8px;
+        label {
+          color: var(--color-gray-700);
+          font-size: 16px;
+          width: 20%;
+          text-align: right;
+          margin: auto;
+          margin-right: 20px;
+        }
+        input {
+          padding: 10px;
+          border: 1px solid var(--color-gray-500);
+          border-radius: 5px;
+          width: 50%;
+        }
+        select {
+          padding: 10px;
+          border: 1px solid var(--color-gray-500);
+          border-radius: 5px;
+          width: 30%;
+        }
+      }
+    .submit-button {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: var(--color-text);
+      color: var(--color-white);
+      cursor: pointer;
+    }
+    .disabled-submit-button{
+        width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      color: var(--color-white);
+      cursor: pointer;
+        background-color: #3333335e;
+    }
+  }
+}
