@@ -1,0 +1,12 @@
+#Frontend ignored files
+
+online-auction-frontend/node_modules
+online-auction-frontend/build
+online-auction-frontend/.env*
+
+
+#Backend ignored files
+
+Backend/node_modules
+Backend/logs
+Backend/.env*
